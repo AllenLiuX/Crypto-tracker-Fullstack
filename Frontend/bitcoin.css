@@ -18,7 +18,14 @@ body{
 
 .container{
     margin-top: 20vh;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 70%;
+    margin-left: 15%;
+    padding: 5vh 0 5vh 0;
+}
+
+.container2{
+    /*background-color: rgba(255, 255, 255, 0.6);*/
     width: 70%;
     margin-left: 15%;
     padding: 5vh 0 5vh 0;
@@ -45,9 +52,12 @@ label{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-button{
+#sub{
     position: relative;
-    top: 40px;
+    /*top: 40px;*/
+    font-size: 1em;
+    padding-left: 10px;
+    padding-right: 10px;
     /*background-color: #1c7430;*/
     /*color: #1c7430;*/
 }
@@ -58,7 +68,7 @@ input{
     /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
 }
 
-#cancel{
+#cancel, #instruction{
     margin-left:3vw;
     color: black;
     font-size: 1em;
