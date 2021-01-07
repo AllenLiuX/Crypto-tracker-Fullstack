@@ -1,0 +1,169 @@
+mail has been setup successfully.
+current price:  34941.3024
+price target:  34900
+mail has been send successfully.
+current price:  34990.6883
+price target:  35100
+current price:  34976.9725
+price target:  35100
+current price:  35044.4133
+price target:  35100
+current price:  35113.5355
+price target:  35100
+mail has been send successfully.
+current price:  35117.6763
+price target:  35300
+current price:  35117.6763
+price target:  35300
+current price:  35186.3868
+price target:  35300
+current price:  35186.3868
+price target:  35300
+current price:  35178.352
+price target:  35300
+current price:  35270.0033
+price target:  35300
+current price:  35281.2453
+price target:  35300
+current price:  35230.635
+price target:  35300
+current price:  35137.3569
+price target:  35300
+current price:  35107.1583
+price target:  35300
+current price:  35137.3569
+price target:  35300
+current price:  34984.9067
+price target:  35300
+current price:  34982.2986
+price target:  35300
+current price:  34938.72
+price target:  35300
+current price:  34925.8568
+price target:  35300
+current price:  34941.6617
+price target:  35300
+current price:  34925.8568
+price target:  35300
+current price:  34973.71
+price target:  35300
+current price:  34931.5639
+price target:  35300
+current price:  34905.45
+price target:  35300
+current price:  34911.2175
+price target:  35300
+current price:  34959.12
+price target:  35300
+current price:  34936.9431
+price target:  35300
+current price:  34940.48
+price target:  35300
+current price:  34928.8956
+price target:  35300
+current price:  34910.31
+price target:  35300
+current price:  34824.6597
+price target:  35300
+current price:  34800.72
+price target:  35300
+current price:  34858.4686
+price target:  35300
+current price:  34859.7033
+price target:  35300
+current price:  34796.8414
+price target:  35300
+current price:  34836.765
+price target:  35300
+current price:  34852.4303
+price target:  35300
+current price:  34906.4583
+price target:  35300
+current price:  34912.8071
+price target:  35300
+current price:  34922.66
+price target:  34900
+mail has been send successfully.
+mail has been send successfully.
+current price:  34922.66
+price target:  35300
+current price:  34943.7533
+price target:  34900
+mail has been send successfully.
+mail has been send successfully.
+current price:  34943.7533
+price target:  35300
+current price:  34920.5361
+price target:  34900
+mail has been send successfully.
+mail has been send successfully.
+current price:  34920.5361
+price target:  35300
+current price:  34922.64
+price target:  34900
+mail has been send successfully.
+mail has been send successfully.
+current price:  34922.64
+price target:  35300
+current price:  34951.5011
+price target:  34900
+mail has been send successfully.
+mail has been send successfully.
+current price:  34951.5011
+price target:  35300
+current price:  34972.2867
+price target:  34900
+current price:  34972.2867
+price target:  35300
+mail has been send successfully.
+mail has been send successfully.
+current price:  34937.1787
+price target:  35300
+current price:  34937.1787
+price target:  34900
+mail has been send successfully.
+mail has been send successfully.
+current price:  34904.7917
+price target:  35300
+current price:  34904.7917
+price target:  34900
+mail has been send successfully.
+mail has been send successfully.
+current price:  34919.6501
+price target:  35300
+current price:  34919.6501
+price target:  34900
+mail has been send successfully.
+mail has been send successfully.
+current price:  34939.1267
+price target:  35300
+current price:  34939.1267
+price target:  34900
+mail has been send successfully.
+mail has been send successfully.
+current price:  34900.6076
+price target:  35300
+current price:  34900.6076
+price target:  34900
+mail has been send successfully.
+mail has been send successfully.
+current price:  34869.7633
+price target:  35300
+current price:  34869.7633
+price target:  34900
+mail has been send successfully.
+current price:  34895.5024
+price target:  35300
+current price:  34895.5024
+price target:  34900
+mail has been send successfully.
+current price:  34896.9889
+price target:  35300
+current price:  34896.9889
+price target:  34900
+mail has been send successfully.
+current price:  34896.9889
+price target:  35300
+current price:  34896.9889
+price target:  34900
+mail has been send successfully.

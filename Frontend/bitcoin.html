@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Price Tracker</title>
+    <link rel="stylesheet" type="text/css" href="bitcoin.css?v=1">
+</head>
+<body>
+<div class="container">
+    <h1>Crypto Price Tracker</h1>
+    <form action="http://106.14.45.82:5101/liushui/process_file" method="post" enctype="multipart/form-data">
+        <label for="name">crypto to be tracked:</label>
+        <input type="text" name="name" id="name" placeholder="BTC">
+        <br>
+        <label for="raiseline">raise line:</label>
+        <input type="number" name="raiseline" id="raiseline" placeholder="37800">
+        <br>
+        <label for="interval">change interval:</label>
+        <input type="number" name="interval" id="interval" placeholder="300">
+        <br>
+        <label for="interval">Your email:</label>
+        <input type="text" name="interval" id="interval">
+        <br>
+        <input type="submit" value="Subscribe" id="sub" onclick="generate()">
+        <input type="button" value="Reset" id="reset" onclick="reset()">
+    </form>
+</div>
+</body>
+</html>
