@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Price Tracker</title>
+    <link rel="stylesheet" type="text/css" href="Frontend/bitcoin.css?v=1">
+    <script src="Frontend/jquery-3.4.1.js?v=1"></script>
+    <script src="Frontend/bitcoin.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Crypto Price Tracker</h1>
+    <form action="http://8.210.91.108:5101/bitcoin/remove_tracker" method="post" enctype="multipart/form-data">
+        <label for="name">crypto to be tracked</label>
+        <input type="text" name="crypto" id="crypto" placeholder="btc">
+        <br>
+        <label for="interval">Your email</label>
+        <input type="text" name="user_mail" id="user_mail">
+        <br>
+        <input type="submit" value="Confirm" id="sub" onclick="generate()">
+<!--        <input type="button" value="Reset" id="reset" onclick="reset()">-->
+    </form>
+</div>
+</body>
+<footer>
+    Vincent Liu @2021. Powered by Flask
+</footer>
+</html>
