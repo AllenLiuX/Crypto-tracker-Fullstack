@@ -10,10 +10,8 @@ import traceback
 import os, sys
 import numpy as np
 
-sys.path.append('/Users/vincentl/PycharmProjects/Aita-Tech/Liushui')
-sys.path.append('/home/bank_dev/Aita-Tech/Liushui/')
-import analysis as analysis
-import matcher as matcher
+# sys.path.append('/home/bank_dev/Aita-Tech/Liushui/')
+import bitcoin as bt
 
 app = Flask(__name__)
 api = Api(app)
@@ -116,262 +114,81 @@ def api1(args):
            }
     return res
 
-# 目前不可用
-def match(args):
-    # 检查必要入参
+def add_tracker(args):
     keys = [
-        'file_path',
-        'output_path',
-        'user_name',
-    ]
-    # print(args)
-    lost_keys = get_lost_keys(args, keys)
-    if lost_keys:
-        return {'respCode': '9999',
-                'respMsg': '缺少参数: %s' % ' '.join(lost_keys)}
-    try:
-        file_path = args['file_path']  # str
-        output_path = args['output_path']
-        user_name = args['user_name']
-    except Exception as e:
-        return {
-            'respCode': '9999',
-            'respMsg': '数据类型错误: %s' % str(e),
-            'sample_args': {
-                'arg1': '文本',
-            }  # 后端传递入参都是字符, 需要检查数据类型
-        }
-    data = matcher.entry(file_path, output_path, user_name)
-    if data != 'success':
-        res = {
-            'respCode': '0000',
-            'respMsg': 'need rule mapping',
-            'data': {
-                'data': data
-            }
-        }
-    else:
-        res = {
-            'respCode': '0000',
-            'respMsg': 'success',
-            'data': {
-                'data': data
-            }
-        }
-    return res
-
-
-def addrules(args):
-    keys = [
-        'query',
-        'company',
-        'rule_name'
+        'user_mail', 'raise_line', 'change_interval', 'crypto'
     ]
     lost_keys = get_lost_keys(args, keys)
     if lost_keys:
         return {'respCode': '9999',
                 'respMsg': '缺少参数: %s' % ' '.join(lost_keys)}
+
+    # 检查数据类型
     try:
-        query = json.loads(args['query'])
-        company = args['company']
-        rule_name = args['rule_name']
-        print(query.items())
+        user_mail = args['user_mail']  # str
+        raise_line = float(args['raise_line'])  # float
+        change_interval = float(args['change_interval'])  # float
+        crypto = args['crypto']
+        # arg4 = json.loads(args['arg4'])  # 反序列前端传递的 list, dict 等序列化字符
     except Exception as e:
-        return {
-            'respCode': '9999',
-            'respMsg': '数据类型错误: %s' % str(e),
-            'sample_args': {
-                'arg1': '文本',
-            }  # 后端传递入参都是字符, 需要检查数据类型
-        }
-    # data = matcher.add_rules(query, user)
-    data = matcher.add_rules(query, company, rule_name)
+        return {'respCode': '9999',
+                'respMsg': '数据类型错误: %s' % str(e),
+                'sample_args': {'arg1': '文本',
+                                'arg2': '1',
+                                'arg3': '0.99',
+                                'arg4': '["2020-01","2020-02"]'
+                                }  # 后端传递入参都是字符, 需要检查数据类型
+                }
+
+    status = bt.set_mg(user_mail, raise_line, change_interval, crypto)
+
     res = {
-        'respCode': '0000',
-        'respMsg': 'success',
-        'data': {
-            'data': data
+        'respCode': '0000', 'respMsg': 'success', 'data': {
+            'status': status,
+            'args': args
         }
     }
     return res
 
-
-def addstats(args):
+def remove_tracker(args):
     keys = [
-        'query',
-        'company',
-        'file',
-        'table',
-        'batch_id',
+        'user_mail', 'crypto'
     ]
     lost_keys = get_lost_keys(args, keys)
     if lost_keys:
         return {'respCode': '9999',
                 'respMsg': '缺少参数: %s' % ' '.join(lost_keys)}
+
+    # 检查数据类型
     try:
-        query = json.loads(args['query'])
-        company = args['company']
-        file = args['file']
-        table = args['table']
-        batch_id = args['batch_id']
-#        print('type of query is: ', type(query))
+        user_mail = args['user_mail']  # str
+        crypto = args['crypto']
+        # arg4 = json.loads(args['arg4'])  # 反序列前端传递的 list, dict 等序列化字符
     except Exception as e:
-        return {
-            'respCode': '9999',
-            'respMsg': '数据类型错误: %s' % str(e),
-            'sample_args': {
-                'arg1': '文本',
-            }  # 后端传递入参都是字符, 需要检查数据类型
-        }
-    # data = matcher.add_rules(query, path)
-    data = matcher.add_stats(query, company, file, table, batch_id)
+        return {'respCode': '9999',
+                'respMsg': '数据类型错误: %s' % str(e),
+                'sample_args': {'arg1': '文本',
+                                'arg2': '1',
+                                'arg3': '0.99',
+                                'arg4': '["2020-01","2020-02"]'
+                                }  # 后端传递入参都是字符, 需要检查数据类型
+                }
+
+    status = bt.remove_mg(user_mail, crypto)
+
     res = {
-        'respCode': '0000',
-        'respMsg': 'success',
-        'data': {
-            'data': data
+        'respCode': '0000', 'respMsg': 'success', 'data': {
+            'status': status,
+            'args': args
         }
     }
     return res
 
-
-def analyze(args):
-    keys = [
-        'company',
-    ]
-    lost_keys = get_lost_keys(args, keys)
-    if lost_keys:
-        return {'respCode': '9999',
-                'respMsg': '缺少参数: %s' % ' '.join(lost_keys)}
-    try:
-        company = args['company']
-    except Exception as e:
-        return {
-            'respCode': '9999',
-            'respMsg': '数据类型错误: %s' % str(e),
-            'sample_args': {
-                'company': 'aitai',
-            }  # 后端传递入参都是字符, 需要检查数据类型
-        }
-    data = analysis.run(company)
-    res = {
-        'respCode': '0000',
-        'respMsg': 'success',
-        'data': {
-            'data': data
-        }
-    }
-    return res
-
-
-# @app.route('/main')
-# def test():
-#     return render_template('upload.html' )
-
-
-def process_file(file, args):
-    app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
-    UPLOAD_FOLDER = './' + args['company']
-    if not os.path.exists(UPLOAD_FOLDER):
-        os.mkdir(UPLOAD_FOLDER)
-    ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'xlsx'}
-    def allowed_file(filename):
-        return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
-    if file and allowed_file(file.filename):
-        #filename = secure_filename(file.filename)
-        filename = file.filename
-        upload_path = os.path.join(UPLOAD_FOLDER, filename)
-        file.save(upload_path)
-        # return 'Upload Successfully'
-    else:
-        return 'Upload Failed'
-    keys = [
-        'company',
-        'batch_id'
-    ]
-    # print(args)
-    lost_keys = get_lost_keys(args, keys)
-    if lost_keys:
-        return {'respCode': '9999',
-                'respMsg': '缺少参数: %s' % ' '.join(lost_keys)}
-    try:
-        company = args['company']  # str
-        batch_id = args['batch_id'] #str
-    except Exception as e:
-        return {
-            'respCode': '9999',
-            'respMsg': '数据类型错误: %s' % str(e),
-            'sample_args': {
-                'company': 'yikong',
-            }  # 后端传递入参都是字符, 需要检查数据类型
-        }
-    # data = matcher.entry(file_path, output_path, user_name)
-    data = matcher.process_file(company, upload_path, batch_id=batch_id, method='api')    ## 目前测试阶段batch_id为'test'！实际应改为每次特定id
-    # if data != 'success':
-    #     res = {
-    #         'respCode': '0000',
-    #         'respMsg': 'need rule mapping',
-    #         'data': {
-    #             'data': data
-    #         }
-    #     }
-    # else:
-    res = {
-        'respCode': '0000',
-        'respMsg': 'success',
-        'data': {
-            'data': data
-        }
-    }
-    # return res
-    if request.method == 'POST':
-        res = json.dumps(res, default=str, ensure_ascii=False)
-        return res
-
-
-
-def upload(file, args):
-    # 设置请求内容的大小限制，即限制了上传文件的大小
-    app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
-
-    # 设置上传文件存放的目录
-    UPLOAD_FOLDER = './'+args['company']
-    if not os.path.exists(UPLOAD_FOLDER):
-        os.mkdir(UPLOAD_FOLDER)
-
-    # 设置允许上传的文件类型
-    ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'xlsx'])
-
-    # 检查文件类型是否合法
-    def allowed_file(filename):
-        # 判断文件的扩展名是否在配置项ALLOWED_EXTENSIONS中
-        return '.' in filename and \
-               filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
-
-    # if request.method == 'POST':
-        # 获取上传过来的文件对象
-    # 检查文件对象是否存在，且文件名合法
-    if file and allowed_file(file.filename):
-        # 去除文件名中不合法的内容
-        #filename = secure_filename(file.filename)
-        filename = file.filename
-        # 将文件保存在本地UPLOAD_FOLDER目录下
-        file.save(os.path.join(UPLOAD_FOLDER, filename))
-        return 'Upload Successfully'
-    else:  # 文件不合法
-        return 'Upload Failed'
-    # else:  # GET方法
-    #     return render_template('upload.html')
 
 # 接口字典, api名称:api函数, 新增接口地址更新此字典
 dic_api = {
     'api1': api1,
-    'match': match,
-    'addrules': addrules,
-    'analyze': analyze,
-    'addstats': addstats,
-    'upload': upload,
-    'process_file': process_file,
+    'add_tracker': add_tracker,
 }
 
 
@@ -403,7 +220,7 @@ class Service_name(Resource):
         return json.dumps(res, ensure_ascii=False)
 
 
-api.add_resource(Service_name, '/liushui/<string:api_name>')  # sample 替换为service_name
+api.add_resource(Service_name, '/bitcoin/<string:api_name>')  # sample 替换为service_name
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5101)
