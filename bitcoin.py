@@ -120,9 +120,9 @@ def one_alert(user_mail, crypto):
 
 
 def multiple_alert():
-    datas = mg.show_datas('interval_info', {}, 'Bitcoin')
-    cryptos = ['eth', 'etc', 'stellar']
+    cryptos = ['btc', 'eth', 'etc', 'stellar']
     while True:
+        datas = mg.show_datas('interval_info', {}, 'Bitcoin')
         prices = {}
         prices['btc'] = get_latest_bitcoin_price()
         for crypto in cryptos:
