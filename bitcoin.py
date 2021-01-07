@@ -19,7 +19,7 @@ def get_latest_crypto_price(crypt):
         return -1
     selector = etree.HTML(response.text)
     content = selector.xpath(xpath)
-    price = float(content[0])
+    price = float(content[0].replace(',', ''))
     # print(content[0])
     return price
 
@@ -44,7 +44,7 @@ def price_monitor(current_price, raise_line, drop_line, change_interval, user_ma
             drop_line += change_interval
         title = crypto + ' raise report. Price: ' + str(current_price)  # 邮件主题
         content = '<html><body><h1>Hello,</h1><p>Here is your report from <a href="www.vincentliux.com/bitcoin/">www.vincentliux.com/bitcoin/</a></p>' + \
-                  '<p>The current bitcoin price is: </p><b style="color: red">' + \
+                  '<p>The current bitcoin price is: </p><b style="color: green">' + \
                   str(current_price) + \
                   '</b><p>Your next raise alert line is '+str(raise_line)+', and next drop alert line is '+str(drop_line) +\
                   '.</p><p>If you want to cancel your subscription, visit <a href="www.vincentliux.com/bitcoin-cancel/">www.vincentliux.com/bitcoin-cancel/</a></p>' +\
