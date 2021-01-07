@@ -14,7 +14,9 @@ def get_latest_crypto_price(crypt):
         return False
     selector = etree.HTML(response.text)
     content = selector.xpath(xpath)
-    print(content)
+    price = content[0]
+    print(content[0])
+    return price
     # price = float(response_json['bpi']['USD']['rate'].replace(',', ''))
     # return price
 
