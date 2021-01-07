@@ -12,6 +12,7 @@ import numpy as np
 
 # sys.path.append('/home/bank_dev/Aita-Tech/Liushui/')
 import bitcoin as bt
+import mail
 
 app = Flask(__name__)
 api = Api(app)
@@ -141,6 +142,7 @@ def add_tracker(args):
                 }
 
     status = bt.set_mg(user_mail, raise_line, change_interval, crypto)
+    mail.thanks_email(crypto, raise_line, change_interval, [user_mail])
 
     res = {
         'respCode': '0000', 'respMsg': 'success', 'data': {
@@ -189,6 +191,7 @@ def remove_tracker(args):
 dic_api = {
     'api1': api1,
     'add_tracker': add_tracker,
+    'remove_tracker': remove_tracker,
 }
 
 

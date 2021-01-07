@@ -65,6 +65,16 @@ def send_email2(SMTP_host, from_account, from_passwd, to_account, subject, conte
     email_client.quit()
 
 
+def thanks_email(crypto, raise_line, interval, receivers):
+    title = 'Crypto tracker subscription setup.'
+    content = '<html><body>Hi,<br>your subscription of the '+crypto+\
+              ' tracker has been set up. <br>You will be notified when price reaches your target raise line '+\
+              str(raise_line)+'or drop line with interval'+str(interval)+\
+              '.Thanks for your subscription.\n Best wishes, \n-- Vincent Liu</body></html>'
+    sendEmail(title, content, receivers)
+    return True
+
+
 if __name__ == '__main__':
     content = '<html><body><h1>Hello</h1>' + \
               '<p>send by <a href="http://www.python.org">Python</a>...</p>' + \

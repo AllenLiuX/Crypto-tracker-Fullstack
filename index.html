@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Price Tracker</title>
-    <link rel="stylesheet" type="text/css" href="bitcoin.css?v=1">
+    <link rel="stylesheet" type="text/css" href="Frontend/bitcoin.css?v=1">
 </head>
 <body>
 <div class="container">
     <h1>Crypto Price Tracker</h1>
-    <form action="http://106.14.45.82:5101/liushui/process_file" method="post" enctype="multipart/form-data">
+    <form action="http://8.210.91.108:5101/bitcoin/add_tracker" method="post" enctype="multipart/form-data">
         <label for="name">crypto to be tracked:</label>
-        <input type="text" name="name" id="name" placeholder="BTC">
+        <input type="text" name="crypto" id="crypto" placeholder="btc">
         <br>
         <label for="raiseline">raise line:</label>
-        <input type="number" name="raiseline" id="raiseline" placeholder="37800">
+        <input type="number" name="raise_line" id="raise_line" placeholder="37800">
         <br>
         <label for="interval">change interval:</label>
-        <input type="number" name="interval" id="interval" placeholder="300">
+        <input type="number" name="change_interval" id="change_interval" placeholder="300">
         <br>
         <label for="interval">Your email:</label>
-        <input type="text" name="interval" id="interval">
+        <input type="text" name="user_mail" id="user_mail">
         <br>
         <input type="submit" value="Subscribe" id="sub" onclick="generate()">
         <input type="button" value="Reset" id="reset" onclick="reset()">
