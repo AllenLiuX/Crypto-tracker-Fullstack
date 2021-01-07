@@ -9,15 +9,16 @@
 </head>
 <body>
 <div class="container">
-    <h1>Crypto Price Tracker - Cancel</h1>
+    <h1>Crypto Price Tracker - Cancel subscription</h1>
     <form action="http://8.210.91.108:5101/bitcoin/remove_tracker" method="post" enctype="multipart/form-data">
-        <label for="name">crypto to be tracked</label>
+        <label for="name">crypto</label>
         <input type="text" name="crypto" id="crypto" placeholder="btc">
         <br>
         <label for="interval">Your email</label>
         <input type="text" name="user_mail" id="user_mail">
         <br>
         <input type="submit" value="Confirm" id="sub" onclick="generate()">
+        <a href="www.vincentliux.com/bitcoin/"><label id="cancel">Go to subscribe</label></a>
 <!--        <input type="button" value="Reset" id="reset" onclick="reset()">-->
     </form>
 </div>
