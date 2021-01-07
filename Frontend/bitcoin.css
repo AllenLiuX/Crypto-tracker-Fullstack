@@ -58,6 +58,12 @@ input{
     /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
 }
 
+#cancel{
+    margin-left:3vw;
+    color: black;
+    font-size: 1em;
+}
+
 footer{
     text-align: center;
     color:whitesmoke;
