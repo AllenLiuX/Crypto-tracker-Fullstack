@@ -43,12 +43,12 @@ def price_monitor(current_price, raise_line, drop_line, change_interval, user_ma
             raise_line += change_interval
             drop_line += change_interval
         title = crypto + ' raise report. Price: ' + str(current_price)  # 邮件主题
-        content = '<html><body><h1>Hello,</h1><p>Here is your report from <a href="www.vincentliux.com/bitcoin/">www.vincentliux.com/bitcoin/</a></p>' + \
+        content = '<html><body><h2>Crypto Report</h2><p>Here is your report from <a href="www.vincentliux.com/bitcoin/">www.vincentliux.com/bitcoin/</a></p>' + \
                   '<p>The current bitcoin price is: </p><b style="color: green">' + \
                   str(current_price) + \
                   '</b><p>Your next raise alert line is '+str(raise_line)+', and next drop alert line is '+str(drop_line) +\
                   '.</p><p>If you want to cancel your subscription, visit <a href="www.vincentliux.com/bitcoin/cancel/">www.vincentliux.com/bitcoin/cancel/</a></p>' +\
-                  '<p>See more bitcoin info at: <a href="https://www.coindesk.com/price/bitcoin">Bitcoin Info</a>...</p><p>Best wishes,</p><p>--Vincent Liu</p></body></html>'
+                  '<p>See more bitcoin info at: <a href="https://www.coindesk.com/price/bitcoin">Bitcoin Info</a></p><p>Best wishes,</p><p>--Vincent Liu</p></body></html>'
         # mail.quick_send_email(smtpObj, title, content)
         mail.sendEmail(title, content, user_mails)
 
@@ -57,12 +57,12 @@ def price_monitor(current_price, raise_line, drop_line, change_interval, user_ma
             raise_line -= change_interval
             drop_line -= change_interval
         title = crypto + ' drop report. Price: ' + str(current_price)  # 邮件主题
-        content = '<html><body><h1>Hello,</h1><p>Here is your report from <a href="www.vincentliux.com/bitcoin/">www.vincentliux.com/bitcoin/</a></p>' + \
+        content = '<html><body><h2>Crypto Report</h2><p>Here is your report from <a href="www.vincentliux.com/bitcoin/">www.vincentliux.com/bitcoin/</a></p>' + \
                   '<p>The current bitcoin price is: </p><b style="color: red">' + \
                   str(current_price) + \
                   '</b><p>Your next raise alert line is ' + str(raise_line) + ', and next drop alert line is ' + str(drop_line) + \
                   '.</p><p>If you want to cancel your subscription, visit <a href="www.vincentliux.com/bitcoin/cancel/">www.vincentliux.com/bitcoin/cancel/</a></p>' + \
-                  '<p>See more bitcoin info at: <a href="https://www.coindesk.com/price/bitcoin">Bitcoin Info</a>...</p><p>Best wishes,</p><p>--Vincent Liu</p></body></html>'
+                  '<p>See more bitcoin info at: <a href="https://www.coindesk.com/price/bitcoin">Bitcoin Info</a></p><p>Best wishes,</p><p>--Vincent Liu</p></body></html>'
         # content = '<html><body><h1>Hello,</h1>' + \
         #           '<p>See more bitcoin info at: <a href="https://coinmarketcap.com/zh/currencies/bitcoin/">Bitcoin Info</a>...</p><p>The current bitcoin price is: </p>' + \
         #           str(current_price) + '</body></html>'

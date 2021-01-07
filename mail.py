@@ -75,6 +75,14 @@ def thanks_email(crypto, raise_line, interval, receivers):
     return True
 
 
+def cancel_email(crypto, receivers):
+    title = 'Crypto tracker unsubscribed.'
+    content = '<html><body>Hi,<br>Your subscription of the '+crypto+\
+              ' tracker has been canceled. <br>You will no longer be notified by me.Thanks for your past subscription. Contact me if you have any suggestions or issues.<br> Best wishes, <br>-- Vincent Liu</body></html>'
+    sendEmail(title, content, receivers)
+    return True
+
+
 if __name__ == '__main__':
     content = '<html><body><h1>Hello</h1>' + \
               '<p>send by <a href="http://www.python.org">Python</a>...</p>' + \

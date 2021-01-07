@@ -177,6 +177,7 @@ def remove_tracker(args):
                 }
 
     status = bt.remove_mg(user_mail, crypto)
+    mail.cancel_email(crypto, [user_mail])
 
     res = {
         'respCode': '0000', 'respMsg': 'success', 'data': {
